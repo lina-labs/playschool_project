@@ -1,0 +1,367 @@
+* {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.mask_bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+body {
+	font-family: Microsoft JhengHei;
+	background-size: cover;
+	background-attachment: fixed
+}
+
+.s_door_bg {
+	background-position: center center
+}
+
+.fa-caret-down,
+.fa-play {
+	color: #ff9800
+}
+
+.top {
+	top: 0
+}
+
+.bottom {
+	bottom: 0
+}
+
+#menu {
+	background-color: rgba(0, 0, 0, 0.5);
+	min-width: 80px;
+	padding: 5px 15px;
+	position: fixed;
+	right: 0;
+	z-index: 2;
+}
+
+#menu ul {
+	padding-left: 0
+}
+
+#menu li {
+	list-style: none;
+	line-height: 2
+}
+
+#menu .menuLink {
+	text-decoration: none;
+	color: white;
+	transition: color 0.3s;
+	position: relative;
+}
+
+#menu .menuLink:hover {
+	color: #ffc107;
+	cursor: pointer;
+}
+
+#music_menu {
+    display:none;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 80px;
+    padding: 5px 15px;
+    position: fixed;
+    right: 117px;
+    z-index: 2
+}
+
+#music_menu ul {
+    padding-left:0;
+}
+
+#music_menu li {
+    list-style: none;
+    line-height: 2
+}
+
+.music{
+    color:white;
+    position: relative;
+}
+
+#music_menu .music:hover {
+    color: #ffc107;
+    cursor: pointer;
+}
+
+
+.name {
+	color: #cddc39;
+	margin-bottom: 8px;
+}
+
+.text_area_bg .name {
+	color: #cddc39;
+	margin-bottom: 8px
+}
+
+.mask {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+	box-sizing: border-box
+}
+
+.icon i {
+	position: absolute;
+	bottom: 20%;
+	right: 10%;
+	z-index: 3;
+}
+
+@keyframes shadow-animation {
+	0% {
+		box-shadow: 0 0 5px rgba(255, 152, 0, 0.6);
+	}
+
+	50% {
+		box-shadow: 0 0 10px #ff9800;
+	}
+
+	100% {
+		box-shadow: 0 0 5px rgba(255, 152, 0, 0.6);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOutAnimation {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.fade-out {
+	animation-name: fadeOutAnimation;
+	animation-duration: 0.5s;
+}
+
+.text_area_bg {
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 50px;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 0px;
+	z-index: 1;
+	font-size: 18px;
+}
+
+.text_area_bg .forText {
+	text-align: center;
+	color: white;
+	margin-top: 10px;
+	font-size: 22px;
+	font-weight: bold
+}
+
+.buttonShow {
+	padding-left: 0;
+	padding: 0 30px;
+	/*list-style-type: none text-decoration:none;*/
+	color: #FF5722;
+	font-size: 20px;
+	margin-top: 20px;
+	text-align: center;
+	color: white;
+	position: absolute;
+	left: 50%;
+	margin-left: -38%;
+	width: 90%;
+	line-height: 1.5;
+	opacity: 0;
+	animation: fade-in 3s forwards;
+}
+
+.button {
+	background: #fff;
+	width: 70%;
+	/*height: 80px;*/
+	padding: 10px 20px;
+	color:#FF5722;
+	font-size: 20px;
+	margin: 20px 0;
+	display: block;
+	border-radius: 10px;
+	animation: shadow-animation 1s infinite;
+	border: #FFC107 1px solid;
+	cursor: url(/img/mouseclick.png), auto;
+}
+
+.button:hover {
+	background: #FF5722;
+	color: white;
+	font-weight: bold;
+}
+
+.buttonShow i {
+	display: none;
+}
+
+.button .name {
+	color: #cddc39;
+}
+
+.person {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -160px;
+	width: 320px;
+	z-index: -1;
+}
+
+#arrow {
+	color: Gold;
+}
+
+@media (min-width: 576px) {
+	.text_area_bg {
+		height: 100vh;
+	}
+
+	.text_area_bg .button {
+		padding-left: 0;
+		padding: 0 30px;
+		font-size: 20px;
+		height: 80px;
+	}
+
+	.text_area_bg .forText {
+		font-size: 24px;
+	}
+
+	.person {
+		margin-left: -150px;
+		width: 300px;
+	}
+}
+
+@media (min-width: 768px) {
+	.text_area_bg {
+		padding: 50px;
+		font-size: 28px;
+		height: 100vh;
+	}
+
+	.text_area_bg .forText {
+		font-size: 24px;
+	}
+	.buttonShow{
+                margin-left:-35%; 
+        }
+	.text_area_bg .button {
+		padding-left: 0;
+		padding: 0 30px;
+		font-size: 24px;
+		border-radius:10px;
+		height: 80px;
+	}
+
+	.person {
+		margin-left: -175px;
+		width: 350px;
+	}
+}
+
+@media (min-width: 992px) {
+	.text_area_bg {
+		padding: 30px 100px;
+		height: 100vh;
+	}
+
+	.text_area_bg .forText {
+		font-size: 26px;
+	}
+
+
+	.text_area_bg .button {
+		font-size: 26px;
+		border-radius:20px;
+		height: 80px;
+	}
+
+	.person {
+		margin-left: -200px;
+		width: 400px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.text_area_bg {
+		font-size: 28px;
+		height: 100vh
+	}
+
+	.text_area_bg .forText {
+		font-size: 35px
+	}
+	.buttonShow{
+		margin-left:-33.5%;
+	}
+
+	.text_area_bg .button {
+		font-size: 28px;
+		border-radius:50px;
+		height: 80px;
+	}
+
+	.person {
+		margin-left: -220px;
+		width: 440px;
+	}
+}
+
+@media (min-width: 1600px) {
+	.text_area_bg {
+		font-size: 30px;
+		height: 100vh
+	}
+
+	.text_area_bg .forText {
+		margin-top: -5px;
+		font-size: 30px
+	}
+	
+	.text_area_bg .button {
+                font-size: 28px;
+                border-radius:50px;
+                height: 80px;
+        }
+	.person {
+		margin-left: -270px;
+		width: 540px;
+	}
+}
+
+/*# sourceMappingURL=custom.css.map*/

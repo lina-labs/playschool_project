@@ -1,0 +1,244 @@
+* {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.mask_bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	
+	cursor: url(/img/mouseclick.png), auto;
+}
+
+body {
+	font-family: Microsoft JhengHei;
+	background-size: cover;
+	background-attachment: fixed
+}
+
+.s_door_bg {
+	background-position: center center
+}
+
+.fa-caret-down,
+.fa-play {
+	color: #ff9800
+}
+
+.top {
+	top: 0
+}
+
+.bottom {
+	bottom: 0
+}
+
+#menu {
+	background-color: rgba(0, 0, 0, 0.5);
+	min-width: 80px;
+	padding: 5px 15px;
+	position: fixed;
+	right: 0;
+	z-index: 2
+}
+
+#menu ul {
+	padding-left: 0
+}
+
+#menu li {
+	list-style: none;
+	line-height: 2
+}
+
+#menu .menuLink {
+	text-decoration: none;
+	color: white;
+	transition: color 0.3s;
+	position: relative
+}
+
+#menu .menuLink:hover {
+	color: #ffc107;
+	cursor: pointer;
+}
+
+
+#music_menu {
+    display:none;
+	background-color: rgba(0, 0, 0, 0.5);
+    min-width: 80px;
+    padding: 5px 15px;
+    position: fixed;
+    right: 117px;
+    z-index: 2
+}
+
+#music_menu ul {
+    padding-left:0;
+}
+
+#music_menu li {
+    list-style: none;
+    line-height: 2
+}
+
+.music{
+	color:white;
+	position: relative;
+}
+
+#music_menu .music:hover {
+    color: #ffc107;
+    cursor: pointer;
+}
+.name {
+	color: #cddc39;
+	margin-bottom: 8px;
+}
+
+.mask {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	box-sizing: border-box
+	
+}
+
+.black_bg {
+	padding: 20px;
+	font-size: 18px;
+}
+
+.text_area_bg {
+	color: white;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	margin-left: -42.5%;
+	width: 85%;
+	height: 100%;
+	line-height: 2;
+	cursor: url(/img/mouseclick.png), auto;
+	z-index: 1;
+ 	font-size: 18px;
+	padding: 20px;
+}
+
+.text_area_bg .name {
+	/*color: #cddc39*/
+}
+
+.icon i {
+	position: absolute;
+	bottom: 50%;
+	right: 5%;
+	z-index: 3;
+}
+
+.person {
+	position: absolute;
+	bottom: 0;
+	left: 30%;
+	margin-left: -40%;
+	width: 70%;
+	z-index: -1;
+}
+
+#arrow {
+	color: Gold;
+}
+
+@media (min-width: 576px) {
+	/*.text_area_bg .forText {
+		font-size: 18px;
+	}
+
+	.text_area_bg .name {
+        font-size: 18px;
+    }*/
+
+	.person {
+		width: 65%;
+		margin-left: -32.5%;
+	}
+}
+
+@media (min-width: 768px) {
+	.text_area_bg{
+		font-size: 24px;
+	}
+    /*.text_area_bg .name {
+        font-size: 24px;
+    }*/
+
+	.person {
+		width: 50%;
+		margin-left: -25%;
+	}
+}
+
+@media (min-width: 992px) {
+	.text_area_bg{
+		font-size: 28px;
+	}
+    /*.text_area_bg .name {
+        font-size: 28px;
+    }*/
+
+	.person {
+		width: 400px;
+		margin-left: -200px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.text_area_bg{
+		font-size: 30px;
+	}
+    /*.text_area_bg .name {
+        font-size: 30px;
+    }*/
+
+	.person {
+		width: 460px;
+		margin-left: -230px;
+	}
+}
+
+@media (min-width: 1600px) {
+	.text_area_bg {
+		font-size: 32px;
+	}
+    /*.text_area_bg .name {
+        font-size: 32px;
+    }*/
+
+	.person {
+		width: 540px;
+		margin-left: -270px;
+	}
+}
+
+@keyframes fadeOutAnimation {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+.fade-out {
+	animation-name: fadeOutAnimation;
+	animation-duration: 1s;
+}

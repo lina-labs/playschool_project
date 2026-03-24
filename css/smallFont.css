@@ -1,0 +1,22 @@
+/*Small font size*/
+.text_area_bg {
+	font-size: 15px;
+}
+
+@media (min-width: 768px) {
+	.text_area_bg {
+		font-size: 23px
+	}
+}
+
+@media (min-width: 1200px) {
+	.text_area_bg {
+		font-size: 29px;
+	}
+}
+
+@media (min-width: 1600px) {
+	.text_area_bg {
+		font-size: 31px;
+	}
+}

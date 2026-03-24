@@ -1,0 +1,183 @@
+body {
+    font-family: Microsoft JhengHei;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.s_door_bg {
+    background-position: center center;
+    transition-duration: 1s;
+}
+
+.text_area_bg {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 25vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 5%;
+    cursor: pointer;
+    color: #fff;
+}
+
+.text_area_bg .forText {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 80%;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.text_area_bg .buttonContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border: none;
+    height: 50px;
+    width: auto;
+    margin-top: 20%;
+}
+
+.person {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -30%;
+    width: 60%;
+    z-index: -1;
+}
+
+.button {
+    text-decoration: none;
+    text-align: center;
+    background-color: rgba(210, 61, 16, 0.7764705882);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 10px 2px;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    transition: 1s;
+}
+
+.button:hover {
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.8);
+    background-color: rgb(219, 194, 162);
+}
+
+@media (min-width: 576px) {
+    .text_area_bg .forText {
+        font-size: 18px;
+    }
+
+    .text_area_bg .blinking {
+        font-size: 18px;
+    }
+
+    .text_area_bg .buttonContainer {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .person {
+        width: 50%;
+        margin-left: -25%;
+    }
+}
+
+@media (min-width: 768px) {
+    .text_area_bg .forText {
+        font-size: 32px;
+    }
+
+    .text_area_bg .blinking {
+        font-size: 32px;
+    }
+
+    .text_area_bg .buttonContainer {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        width: auto;
+    }
+
+    .person {
+        width: 40%;
+        margin-left: -20%;
+    }
+}
+
+@media (min-width: 992px) {
+    .text_area_bg .buttonContainer {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        width: auto;
+    }
+
+    .person {
+        width: 350px;
+        margin-left: -175px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .text_area_bg .forText {
+        font-size: 34px;
+    }
+
+    .text_area_bg .blinking {
+        font-size: 34px;
+    }
+
+    .person {
+        width: 400px;
+        margin-left: -200px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .text_area_bg .forText {
+        font-size: 36px;
+    }
+
+    .text_area_bg .blinking {
+        font-size: 36px;
+    }
+
+    .person {
+        width: 480px;
+        margin-left: -240px;
+    }
+}
+
+@keyframes blinking-animation {
+    0% {opacity: 0;}
+
+    50% {opacity: 0.8;}
+
+    100% {opacity: 0;}
+}
+
+.blinking {
+    position: absolute;
+    right: 10%;
+    top: 60%;
+    animation: blinking-animation 1.5s infinite;
+}
+
+/*# sourceMappingURL=custom.css.map */
