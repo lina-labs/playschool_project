@@ -1,0 +1,88 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title> Play School </title>
+	<link rel="stylesheet" href="/css/introduce.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="stylesheet" href="/css/option.css">
+	<link rel="stylesheet" href="/css/extended.css">
+	<link rel="stylesheet" href="/css/msg.css">
+	<link rel="stylesheet" href="/css/fontawesome_all.min.css">
+    <script type="module" src="/js/custom.js"></script>
+	<script src = "/js/play.js"></script>
+	<style>
+		html, body {
+			height: 100%; 
+			margin: 0;
+			display: flex;
+			justify-content: center; 
+			align-items: center; 
+		}
+		@media screen and (min-width: 320px) and (max-width: 992px)  and (orientation: landscape) {
+			body.leftRotate  {
+				transform: rotate(-90deg); 
+				transform-origin: center;
+				width: 100vh; 
+				height: 100vw; 
+			}
+			body.rightRotate {
+				transform: rotate(90deg); 
+				transform-origin: center;
+				width: 100vh; 
+				height: 100vw;			
+			}
+		}
+
+		iframe {
+			border: none;
+			outline: none;
+			position: fixed;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body class="home_bg">
+	<div class="mask_bg"></div>
+	<audio id="bgm" loop>
+		<source src="/audio/source.mp3" type="audio/mpeg">
+	</audio>
+	<div class="homeText fa-fade" >點擊任意處進入遊戲....</div>
+	<script>
+		const isteacher = "{{isteacher}}";
+		sessionStorage.setItem('isteacher',isteacher);
+		let playButton = document.getElementsByClassName("mask_bg")[0];
+		let playHome = document.getElementsByClassName("homeText")[0];
+		let bgm = document.getElementById("bgm");
+		bgm.currentTime=0;
+		bgm.volume = 0;
+		playButton.addEventListener('click', function () {
+			let allow_music = sessionStorage.getItem('confirmed')
+			if(allow_music == 0 || allow_music == null){
+				let yes = confirm("是否同意播放背景音樂?");
+				if (yes == true){
+					sessionStorage.setItem('confirmed',1);
+					bgm.volume = 0.2;
+					bgm.play();
+				}else{
+					bgm.volume = 0;
+					sessionStorage.setItem('confirmed',0);
+				}
+			}
+        	else if(sessionStorage.getItem('confirmed') == 1){
+            	bgm.volume = 0.2;
+            	bgm.play(); 
+        	}
+			document.body.classList.remove("home_bg");
+			playHome.remove();
+			let iframe = document.createElement("iframe");
+			iframe.src = '/scenes/4-1';
+			iframe.id="myFrame";
+			iframe.style.width = '100%';
+			iframe.style.height = '100%';
+			document.body.appendChild(iframe);
+		});
+	</script>
+</body>
+</html>

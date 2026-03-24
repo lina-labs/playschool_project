@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/fontawesome_all.min.css">
+<style>
+        body {
+            position: relative;
+        }
+
+    </style>
+</head>
+
+<body class="end_bg">
+    <div class="fa-fade endText">遊戲結束 點擊上方按鈕重新開始</div>
+    <button id="restart"> <img src="/img/restart_v1.png" alt="Image"></button>
+    <script>
+        let end = document.getElementById("restart");
+        let allow_music = sessionStorage.getItem('confirmed');
+        var clickEffect = new Audio("/audio/click.mp3");
+        clickEffect.load();
+        if (allow_music == 0) {
+            clickEffect.volume = 0;
+        }
+        end.addEventListener('mousedown', function () {
+            clickEffect.currentTime = 0;
+            clickEffect.volume = 0.8;
+            clickEffect.play();
+            setTimeout(function () {
+                window.location.href = "/scenes/0-1";
+            }, 150);
+        });
+
+    </script>
+</body>
+
+</html>

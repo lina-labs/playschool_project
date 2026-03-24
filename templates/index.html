@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title> Play School </title></head>
+<body>
+<!--Hello World!
+<a href="/scenes/0-1"> Go ! </a>-->
+
+<audio id="audio" loop>
+    <source src="../audio/source.mp3" type="audio/mpeg">
+</audio>
+<button id="playButton">play music<br></button>
+<script>
+    let audio = document.getElementById("audio");
+    let playButton = document.getElementById("playButton");
+    let frame = document.createElement("iframe");
+        frame.src = 'play.html';
+        frame.style.width = '100%';
+        frame.style.height = '100%';
+
+    playButton.addEventListener('click', function () {
+        audio.play();
+        playButton.remove();
+	document.body.appendChild(frame);
+
+    });
+</script>
+</body>
+</html>

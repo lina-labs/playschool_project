@@ -1,0 +1,112 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title> Play School </title>
+	<link rel="stylesheet" href="/css/introduce.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="stylesheet" href="/css/option.css">
+	<link rel="stylesheet" href="/css/extended.css">
+	<link rel="stylesheet" href="/css/msg.css">
+	<link rel="stylesheet" href="/css/fontawesome_all.min.css">
+    <script type="module" src="/js/custom.js"></script>
+	<script src = "/js/play.js"></script>
+	<style>
+		html, body {
+			height: 100%; 
+			margin: 0;
+			display: flex;
+			justify-content: center; 
+			align-items: center; 
+		}
+		@media screen and (min-width: 320px) and (max-width: 992px)  and (orientation: landscape) {
+			body.leftRotate  {
+				transform: rotate(-90deg); 
+				transform-origin: center;
+				width: 100vh; 
+				height: 100vw; 
+			}
+			body.rightRotate {
+				transform: rotate(90deg); 
+				transform-origin: center;
+				width: 100vh; 
+				height: 100vw;			
+			}
+		}
+		.index_mask {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -3;
+			cursor: url(/img/mouseclick.png), auto;
+		}
+		iframe {
+			border: none;
+			outline: none;
+			position: fixed;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<script>
+
+	</script>
+</head>
+<body class="home_bg">
+	<div class="index_mask"></div>
+	<audio id="bgm" loop>
+		<source src="/audio/source.mp3" type="audio/mpeg">
+	</audio>
+	{% if role == '?r=teacher' %}
+	<div class="homeText fa-fade" >點擊任意處進入遊戲第四幕(教師版)</div>
+	{% else %}
+	<div class="homeText fa-fade" >點擊任意處進入遊戲...</div>
+	{% endif %}
+	<script>
+		let role = "{{role}}";
+		sessionStorage.setItem('role',role);
+		let playButton = document.getElementsByClassName("index_mask")[0];
+		let playHome = document.getElementsByClassName("homeText")[0];
+		let bgm = document.getElementById("bgm");
+		bgm.currentTime=0;
+		bgm.volume = 0;
+		playButton.addEventListener('click', function () {
+			let allow_bg = sessionStorage.getItem('bg_confirmed')
+			let allow_eff = sessionStorage.getItem('eff_confirmed');
+			if(allow_bg == 0 || allow_bg == null){
+				let yes = confirm("是否同意播放背景音樂?");
+				if (yes == true){
+					sessionStorage.setItem('bg_confirmed',1);
+					sessionStorage.setItem('eff_confirmed',1);
+					bgm.volume = 0.2;
+					bgm.play();
+				}else{
+					bgm.volume = 0;
+					sessionStorage.setItem('bg_confirmed',0);
+					sessionStorage.setItem('eff_confirmed',0);
+				}
+			}
+        	else if(sessionStorage.getItem('bg_confirmed') == 1){
+            	bgm.volume = 0.2;
+            	bgm.play(); 
+        	}
+			document.body.classList.remove("home_bg");
+			playHome.remove();
+			let iframe = document.createElement("iframe");
+			if(role == '?r=teacher'){
+				iframe.src = '/scenes/4-1';
+			}
+			else{
+				iframe.src = '/scenes/0-1';
+			}
+			
+			iframe.id="myFrame";
+			iframe.style.width = '100%';
+			iframe.style.height = '100%';
+			document.body.appendChild(iframe);
+		});
+	</script>
+</body>
+</html>

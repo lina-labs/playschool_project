@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Openfind</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link id="fontStyle"  rel="stylesheet" href="/css/defaultFont.css">
+    <link rel="stylesheet" href="/css/introduce.css">
+	<link rel="stylesheet" href="/css/overview.css">
+    <link rel="stylesheet" href="/css/fontawesome_all.min.css">
+	<style>
+		.s_door_bg {
+			{% if play.bgimg=='' %}
+				background-color: rgb(70, 70, 70);
+			{% else %}
+				background-image: url('{{"/img/"+play.bgimg}}');
+			{% endif %}
+		}		
+		.mask_bg {
+			{% if play.charimg != '' %}
+				{% if play.charimg[0] == '黑幕'%}
+					background-color: rgba(70, 70, 70, 0.5);
+				{% endif %}
+			{% endif %}
+		}
+	</style>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		{% if play.option != '' %}
+			let hasbtn = 1;
+		{% else %}
+			let hasbtn = 0;
+		{% endif %}
+		let photo =null;
+		let LINE = 5;
+		let next = "{{next_page}}";
+		let scene = "{{play.scene}}";
+		let prev_page = "{{prev_page}}";
+		let curr_page = "{{curr_page}}";
+		let achievementItems = {{achievementItems|tojson}}
+		let overviewItems = {{overviewItems|tojson}};
+		let reachSelLimit = {{ reachSelLimit }};
+		let textArr = {{ play.message| tojson}};
+		let options = {{ play.option| tojson}};
+    </script>
+</head>
+
+<body class="s_door_bg">
+    <main>
+        <div class="mask_bg"></div>
+        <div id="menu" class="bottom">
+            <ul>
+				<li><div class="menuLink" id="achievement"><i class="fa-solid fa-medal"></i>&nbsp;成就榜 </div></li>
+				<li><div class="menuLink" id="overview"><i class="fas fa-bars"></i>&nbsp;總覽</div></li>
+				<li><div class="menuLink" id="home"><i class="fa-sharp fa-solid fa-house"></i>&nbsp;回主選單 </div></li>
+				<li><div class="menuLink" id="prevPage"><i class="fa-sharp fa-solid fa-backward"></i>&nbsp;上一場景 </div></li>
+				<li><div class="menuLink" id="soundControl"><i class="fa-sharp fa-solid fa-music"></i>&nbsp;音樂控制 </div></li>
+				<li><div class="menuLink" id="back"><i class="fa-sharp fa-solid fa-rotate-right"></i>&nbsp;返回 </div></li>
+				<li><div class="menuLink" id="leave"><i class="fa-sharp fa-solid fa-stairs"></i>&nbsp;離開 </div></li>              
+            </ul>
+        </div>
+		<div id="music_menu" class="bottom">
+			<ul>
+                <li><div class="music" id="bgControl"><i class="fa-sharp fa-solid"></i>&nbsp;背景音樂 </div></li>
+				<li><div class="music" id="effectControl"><i class="fa-sharp fa-solid"></i>&nbsp;音效 </div></li>
+            </ul>
+		</div>
+		<div class="black_bg mask">
+            <div class="text_area_bg">
+                <div class="name"></div>
+                <div class="forText"></div>
+                <div class="icon"><i id="tri-icon" class="fa-sharp fa-solid fa-caret-down fa-fade fa-2xl" id="noticeIcon"></i></div>
+            </div>
+        </div>
+
+		{% if play.charimg != '' %}
+			{% if play.charimg[0] != '黑幕'%} 
+				<img class="person" src="{{'/img/'+play.charimg[0]}}" alt="">
+			{% endif %}
+		{% endif %}
+
+		{% if play.music != '' %}
+			<audio id="effect" autoplay>
+				<source src="{{'/audio/' +  play.music}}" type="audio/mpeg">
+			</audio>
+		{% endif %}
+		<div class="elementor-widget-container">
+			<ul class="elementor-icon-list-items" id='list'>
+			</ul>
+		</div>
+	</main>
+    <script type='module' src="/js/custom.js"></script>
+</body>
+
+</html>
